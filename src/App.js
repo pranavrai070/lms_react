@@ -9,6 +9,15 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
 function App() {
+
+  const handleLogout = () => {
+    console.log('logout handler got clicked');
+    // Clear local storage or perform any other necessary logout actions
+    localStorage.clear();
+    // Redirect to the /auth route
+    return;
+  };
+
   return (
     <Router>
       <>
@@ -19,6 +28,7 @@ function App() {
             <li><Link to="/courses" className="hover:text-gray-300">Courses</Link></li>
             <li><Link to="/analytics" className="hover:text-gray-300">Analytics</Link></li>
             <li><Link to="/discussion" className="hover:text-gray-300">Discussion</Link></li>
+            <li><Link onClick={handleLogout} to="/auth" className="hover:text-gray-300">Logout</Link></li>
           </ul>
         </nav>
 
