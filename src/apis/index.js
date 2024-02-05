@@ -36,7 +36,13 @@ export const courses=()=>{
                     "id": 2,
                     "title": "Physics",
                     "description": "This course will teach you Physics"
+                },
+                {
+                    "id": 3,
+                    "title": "Chemistry",
+                    "description": "This course will teach you Chemistry"
                 }
+             
             ]
         }
     )

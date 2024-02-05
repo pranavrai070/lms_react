@@ -1,32 +1,52 @@
-import React,{useState,useEffect} from 'react'
-import * as api from '../apis/index';
-import coursesImg from "../Assets/images/courses/courses.jpeg"
+import React, { useState, useEffect } from "react";
+import * as api from "../apis/index";
+import coursesImg from "../Assets/images/courses/courses.jpeg";
 
 const Courses = () => {
-  const [courses,setCourses]=useState();
+  const [courses, setCourses] = useState([]);
 
-
-  useEffect(()=>{
-   const response=api.courses();
-   console.log('courses',response);
-   setCourses(response);
-  },[]);
-
+  useEffect(() => {
+    const response = api.courses();
+    console.log("courses", response);
+    setCourses(response.courses);
+  }, []);
 
   return (
     <>
-    <div>courses:</div>
-    <div class=" flex flex-col items-center bg-white max-w-sm bg-white border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" >
-<a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={coursesImg} alt=""/>
-    <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-    </div>
-</a>
-</div>
+      {/* <div>courses:</div> */}
+      {/* <div style={{ display: "flex", flexDirection: "row" }}>
+        {courses.map((course) => (
+          <div className="p-10 flex  gap-5 flex-row">
+            <div className="max-w-sm rounded overflow-hidden shadow-lg">
+              <img className="w-full" src={coursesImg} alt="Mountain" />
+              <div className="px-6 py-4">
+                <div className="font-bold text-xl mb-2">{course.title}</div>
+                <p className="text-gray-700 text-sm">{course.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div> */}
+      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+        {courses.map((course) => (
+          <div
+            key={course.id}
+            className="p-10 flex gap-5 flex-row"
+            style={{ flexBasis: "30%" }}
+          >
+            {/* Adjusted flexBasis to 30% to allow three cards in a row */}
+            <div className="max-w-sm rounded overflow-hidden shadow-lg">
+              <img className="w-full" src={coursesImg} alt="Mountain" />
+              <div className="px-6 py-4">
+                <div className="font-bold text-xl mb-2">{course.title}</div>
+                <p className="text-gray-700 text-sm">{course.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </>
-  )
-}
+  );
+};
 
 export default Courses;
