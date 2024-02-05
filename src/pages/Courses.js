@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import * as api from '../apis/index';
-import coursesImg from "../Assets/images/courses/courses.jpeg"
+import coursesImg from "../assets/images/courses/courses.jpeg"
 
 const Courses = () => {
   const [courses,setCourses]=useState();

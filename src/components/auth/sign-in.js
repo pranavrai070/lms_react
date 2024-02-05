@@ -19,15 +19,14 @@ const SignIn = ({ setIsLoggedIn }) => {
   const [error, setError] = useState('');
 
   const handleLogin = () => {
-  //   console.log('handle clicked');
-  //   const formData = {
-  //     in_login_id:"animesh070",
-  //     in_password:"12345"
+    console.log('handle clicked');
+    const formData = {
+      in_login_id:"animesh070",
+      in_password:"12345"
+  }
 
-  // }
-
-  // const response = api.signIn(formData)
-  // console.log(response, "ok")
+  const response = api.signIn(formData)
+  console.log(response, "ok")
     setIsLoggedIn(true);
     navigate('/');
   };

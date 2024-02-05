@@ -54,7 +54,7 @@
 
 
 import React,{useState} from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link,Navigate } from "react-router-dom";
 import SignIn from "./components/auth/sign-in";
 import Analytics from "./pages/Analytics";
 import Auth from "./pages/Auth";
@@ -92,7 +92,7 @@ function App() {
 
         <Routes>
           <Route path="/analytics" element={<Analytics/>} />
-          <Route path="/auth" element={<Auth/>} />
+          <Route path="/auth" element={<SignIn setIsLoggedIn={setIsLoggedIn}/>} />
           <Route path="/content" element={<Content/>} />
           <Route path="/courses" element={<Courses/>} />
           <Route path="/discussion" element={<Discussion/>} />
