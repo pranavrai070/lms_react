@@ -18,15 +18,17 @@ const SignIn = ({ setIsLoggedIn }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleLogin = () => {
+  const handleLogin =async  () => {
     console.log('handle clicked');
     const formData = {
       in_login_id:"animesh070",
       in_password:"12345"
   }
 
-  const response = api.signIn(formData)
-  console.log(response, "ok")
+  const response =await api.signIn(formData)
+  console.log(response.data.token, "ok");
+  console.log(response.data, "ok");
+  localStorage.setItem('authToken',response.data.token);
     setIsLoggedIn(true);
     navigate('/');
   };

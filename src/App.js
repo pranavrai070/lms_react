@@ -16,7 +16,9 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
 function App() {
-  const [isLoggedIn,setIsLoggedIn] =  useState(false);
+
+  const initialLoggedInState = localStorage.getItem('authToken') ? true : false;
+  const [isLoggedIn, setIsLoggedIn] = useState(initialLoggedInState);
 
   const handleLogout = () => {
     console.log('logout handler got clicked');
