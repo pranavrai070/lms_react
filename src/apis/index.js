@@ -12,7 +12,7 @@ export const signIn = (formData) => API.post('login/', formData);
 
 export const courses=()=>API.get('courses/');
 
-export const lessons=(course_id)=>API.get(`lessons/${course_id}`);
+export const lessons=(course_id)=>API.get(`lessons/${course_id}`);  
 
 export const assessments=(course_id)=>API.get(`assessments/${course_id}`);
 
