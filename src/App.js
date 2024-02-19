@@ -10,6 +10,8 @@ import SignIn from "./components/auth/sign-in";
 import Analytics from "./pages/Analytics";
 import Auth from "./pages/Auth";
 import Content from "./pages/Content";
+import Lesson from "./pages/CourseContent/Lesson";
+import Assessment from "./pages/CourseContent/Assessment";
 import Courses from "./pages/Courses";
 import Discussion from "./pages/Discussion";
 import Home from "./pages/Home";
@@ -50,6 +52,8 @@ function App() {
           <Route path="/auth" element={<SignIn setIsLoggedIn={setIsLoggedIn}/>} />
           <Route path="/content" element={<Content/>} />
           <Route path="/courses" element={<Courses/>} />
+          <Route path="/lessons/:courseId" element={<Lesson />} />
+          <Route path="/assessments/:courseId" element={<Assessment />} />
           <Route path="/discussion" element={<Discussion/>} />
           <Route path="/" element={<Home/>} />
           <Route path="*" element={<NotFound/>} />

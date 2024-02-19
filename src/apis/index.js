@@ -17,4 +17,5 @@ export const lessons=(course_id)=>API.get(`lessons/${course_id}`);
 export const assessments=(course_id)=>API.get(`assessments/${course_id}`);
 
 export const questions=(assessment_id)=>API.get(`questions/${assessment_id}`);
+export const activities=(activities_id)=>API.get(`activities/${activities_id}`);
 
