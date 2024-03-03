@@ -26,11 +26,16 @@ const SignIn = ({ setIsLoggedIn }) => {
   }
 
   const response =await api.signIn(formData)
-  console.log(response.data.token, "ok");
-  console.log(response.data, "ok");
-  localStorage.setItem('authToken',response.data.token);
-    setIsLoggedIn(true);
-    navigate('/');
+  console.log(response, "ok");
+  if(response.status ===200){
+    console.log(response.data, "ok");
+    localStorage.setItem('authToken',response.data.token);
+      setIsLoggedIn(true);
+      navigate('/');
+  }
+else{
+  alert("Invalid Login");
+}
   };
 
   return (
