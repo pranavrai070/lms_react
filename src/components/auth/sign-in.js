@@ -21,21 +21,28 @@ const SignIn = ({ setIsLoggedIn }) => {
   const handleLogin =async  () => {
     console.log('handle clicked');
     const formData = {
-      in_login_id:"animesh070",
-      in_password:"12345"
+      in_login_id:userId,
+      in_password:password
   }
-
+try {
   const response =await api.signIn(formData)
   console.log(response, "ok");
   if(response.status ===200){
     console.log(response.data, "ok");
     localStorage.setItem('authToken',response.data.token);
+    localStorage.setItem('user_id',response.data.user_id);
+    localStorage.setItem('user_type',response.data.user_type);
+    localStorage.setItem('userName',response.data.userName);
       setIsLoggedIn(true);
       navigate('/');
   }
 else{
   alert("Invalid Login");
 }
+} catch (error) {
+  alert("Invalid Login");
+}
+
   };
 
   return (

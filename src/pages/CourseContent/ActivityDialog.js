@@ -1,22 +1,20 @@
-import React,{useState} from "react";
+import React ,{useState} from "react";
 import Dialog from "@mui/material/Dialog";
 // import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
-import ReadConfirmation from "../../components/ui/ReadConfirmation";
+import MarkDone from "../../components/ui/MarkDone";
 
 
-function LessonContent({ open, onClose, lesson }) {
+function ActivityDialog({ open, onClose, activity }) {
 
   const [openDialog, setOpenDialog] = useState(false);
-  const [markReadConfirmation,setMarkReadConfirmation]=useState(false);
+  const [markDoneConfirmation,setMarkDoneConfirmation]=useState(false);
 
   const handleCloseDialog = () => {
     setOpenDialog(false);
   };
-
-
 
   return (
     <>
@@ -24,22 +22,21 @@ function LessonContent({ open, onClose, lesson }) {
         
       {/* <DialogTitle>{lesson && lesson.title}</DialogTitle> */}
       <h1 style={{ fontSize: "25px", textAlign: "center", fontWeight: "bold" }}>
-        {lesson && lesson.title}
+        {activity && activity.title}
       </h1>
-      <DialogContent>{lesson && <p>{lesson.content}</p>}</DialogContent>
+      <DialogContent>{activity && <p>{activity.description}</p>}</DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Close</Button>
-        <Button onClick={()=>{setOpenDialog(true)}}>Mark Read</Button>
+        <Button onClick={()=>{setOpenDialog(true)}}>Makr Done</Button>
       </DialogActions>
     </Dialog>
-
-    <ReadConfirmation
+    <MarkDone
       open={openDialog}
       onClose={handleCloseDialog}
-      setMakrReadConfirmation={setMarkReadConfirmation}
+      setMakrDoneConfirmation={setMarkDoneConfirmation}
     />
     </>
   );
 }
 
-export default LessonContent;
+export default ActivityDialog;

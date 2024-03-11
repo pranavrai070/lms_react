@@ -17,5 +17,13 @@ export const lessons=(course_id)=>API.get(`lessons/${course_id}`);
 export const assessments=(course_id)=>API.get(`assessments/${course_id}`);
 
 export const questions=(assessment_id)=>API.get(`questions/${assessment_id}`);
-export const activities=(activities_id)=>API.get(`activities/${activities_id}`);
+export const activities=(course_id)=>API.get(`activities/${course_id}`);
+
+export const users=()=>API.get(`users/`);
+
+export const sendMessage=(formData)=>API.post(`send_message/`,formData);
+
+export const getMessages=(formData)=>API.post(`get_messages/`,formData);
+
+
 
